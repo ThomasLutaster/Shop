@@ -55,25 +55,4 @@ export default [
         title: 'Unlock 8',
         price: 15,
     },
-    {
-        id: 9,
-        image: 'src/assets/images/unlock.png',
-        description: 'Nouvelles aventures',
-        title: 'Unlock 9',
-        price: 15,
-    },
-    {
-        id: 10,
-        image: 'src/assets/images/unlock.png',
-        description: 'Nouvelles aventures',
-        title: 'Unlock 10',
-        price: 15,
-    },
-    {
-        id: 11,
-        image: 'src/assets/images/unlock.png',
-        description: 'Nouvelles aventures',
-        title: 'Unlock 11',
-        price: 15,
-    },
 ]
