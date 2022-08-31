@@ -1,13 +1,20 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { ProductInterface } from '@/interfaces/product.interface';
+
+defineProps<{
+    product: ProductInterface
+}>()
+
+</script>
 
 <template>
   <div class="product d-flex flex-column">
-    <div class="product-image"></div>
+    <div class="product-image" :style="{ backgroundImage: `url(${product.image})` }"></div>
     <div class="p-10 d-flex flex-column">
-      <h4>Unlock</h4>
-      <p>Nouvelles aventures</p>
+      <h4>{{ product.title }}</h4>
+      <p>{{ product.description }}</p>
       <div class="d-flex flex-row align-items-center">
-        <strong class="flex-fill">Prix : 25€</strong>
+        <strong class="flex-fill">Prix : {{ product.price }}€</strong>
         <button class="btn btn-primary">Ajouter au panier</button>
       </div>
     </div>
@@ -22,7 +29,6 @@
   &-image {
     border-top-right-radius: var(--border-radius);
     border-top-left-radius: var(--border-radius);
-    background-image: url(../../assets/images/unlock.png);
     background-size: cover;
     background-position: center;
     height: 250px;
