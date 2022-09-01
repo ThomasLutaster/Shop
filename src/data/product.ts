@@ -5,6 +5,7 @@ export default [
         description: 'Nouvelles aventures',
         title: 'Unlock',
         price: 15,
+        category: 'party'
     },
     {   
         id: 2,
@@ -12,6 +13,7 @@ export default [
         description: 'Nouvelles aventures',
         title: 'Unlock 2',
         price: 15,
+        category: 'party'
     },
     {
         id: 3,
@@ -19,6 +21,7 @@ export default [
         description: 'Nouvelles aventures',
         title: 'Unlock 3',
         price: 15,
+        category: 'party'
     },
     {
         id: 4,
@@ -26,6 +29,7 @@ export default [
         description: 'Nouvelles aventures',
         title: 'Unlock 4',
         price: 15,
+        category: 'party'
     },
     {
         id: 5,
@@ -33,6 +37,7 @@ export default [
         description: 'Nouvelles aventures',
         title: 'Unlock 5',
         price: 15,
+        category: 'party'
     },
     {
         id: 6,
@@ -40,6 +45,7 @@ export default [
         description: 'Nouvelles aventures',
         title: 'Unlock 6',
         price: 15,
+        category: 'party'
     },
     {
         id: 7,
@@ -47,6 +53,7 @@ export default [
         description: 'Nouvelles aventures',
         title: 'Unlock 7',
         price: 15,
+        category: 'party'
     },
     {
         id: 8,
@@ -54,5 +61,6 @@ export default [
         description: 'Nouvelles aventures',
         title: 'Unlock 8',
         price: 15,
+        category: 'party'
     },
 ]
