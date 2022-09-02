@@ -6,7 +6,7 @@
   import data from './data/product';
   import { DEFAULT_FILTERS } from './data/filters';
   import { computed, reactive } from 'vue';
-  import type { FiltersInterface, ProductCartInterface, ProductInterface } from './interfaces';
+  import type { FiltersInterface, FilterUpdate, ProductCartInterface, ProductInterface } from './interfaces';
 
   const state = reactive<{
     products: ProductInterface[];
@@ -45,7 +45,37 @@ function removeProductFromCart(productId: number): void {
   }
 }
 
+function updateFilter(filterUpdate: FilterUpdate) {
+  if (filterUpdate.search !== undefined) {
+    state.filters.search = filterUpdate.search;
+  } else if (filterUpdate.priceRange) {
+    state.filters.priceRange = filterUpdate.priceRange;
+  } else if (filterUpdate.category) {
+    state.filters.category = filterUpdate.category;
+  } else {
+    state.filters = { ...DEFAULT_FILTERS };
+  }
+}
+
 const isCartEmpty = computed(() => state.cart.length === 0);
+
+const filteredProducts = computed(() => {
+  return state.products.filter((product) => {
+    if (
+      product.title
+        .toLocaleLowerCase()
+        .startsWith(state.filters.search.toLocaleLowerCase()) &&
+      product.price >= state.filters.priceRange[0] &&
+      product.price <= state.filters.priceRange[1] &&
+      (product.category === state.filters.category ||
+        state.filters.category === 'all')
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+});
 
 </script>
 
@@ -54,7 +84,7 @@ const isCartEmpty = computed(() => state.cart.length === 0);
       gridEmpty: isCartEmpty,
     }">
     <TheHeader class="header"/>
-    <Shop @add-product-to-cart="addProductToCart" :products="state.products" class="shop"/>
+    <Shop @update-filter="updateFilter" :filters="state.filters" @add-product-to-cart="addProductToCart" :products="filteredProducts" class="shop"/>
     <Cart v-if="!isCartEmpty" :cart="state.cart" class="cart" @remove-product-from-cart="removeProductFromCart"/>
     <TheFooter class="footer"/>
   </div>
