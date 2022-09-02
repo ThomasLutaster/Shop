@@ -1,4 +1,4 @@
-export type Category = 'experts' | 'card' | 'party' | 'all';
+export type Category = 'experts' | 'card' | 'family' | 'all';
 
 export interface FiltersInterface {
   search: string;
