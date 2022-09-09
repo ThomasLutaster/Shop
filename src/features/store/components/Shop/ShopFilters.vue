@@ -1,9 +1,10 @@
 <script setup lang="ts">
-    import type { Category, FiltersInterface, FilterUpdate } from '../../interfaces';
+    import type { Category, FiltersInterface, FilterUpdate } from '../../../../interfaces';
     defineProps<{
       filters: FiltersInterface;
       nbrOfProducts: number
     }>();
+    
     const emit = defineEmits<{
       (e: 'updateFilter', filterUpdate: FilterUpdate): void;
     }>();
